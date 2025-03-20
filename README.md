@@ -1,6 +1,3 @@
-Here’s the updated GitHub repository description with emojis to make it more visually engaging and reader-friendly:
-
----
 
 # 🏦 Bank Term Deposit Subscription Prediction
 
