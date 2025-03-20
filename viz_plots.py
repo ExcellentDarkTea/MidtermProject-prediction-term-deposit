@@ -28,20 +28,36 @@ def bi_cat_countplot_sub(df, column, hue_column, ax, size=20):
 def uni_cat_target_compare_sub(df, column, ax):
     bi_cat_countplot_sub(df, column, hue_column='y', ax=ax)
 
+# def create_subplots(df, columns):
+#     fig, axes = plt.subplots(nrows=5, ncols=2, figsize=(15, 30))
+#     axes = axes.flatten()
+    
+#     for i, col in enumerate(columns):
+#         uni_cat_target_compare_sub(df, col, ax=axes[i])
+    
+#     # Hide any unused subplots
+#     for j in range(i + 1, len(axes)):
+#         fig.delaxes(axes[j])
+    
+#     plt.tight_layout()
+#     plt.show()
+
 def create_subplots(df, columns):
-    fig, axes = plt.subplots(nrows=5, ncols=2, figsize=(15, 30))
+    # Adjust the number of rows and columns based on the number of columns
+    n_cols = 2  # Number of columns in the subplot grid
+    n_rows = (len(columns) + n_cols - 1) // n_cols  # Calculate rows dynamically
+    fig, axes = plt.subplots(nrows=n_rows, ncols=n_cols, figsize=(15, 5 * n_rows))
     axes = axes.flatten()
     
     for i, col in enumerate(columns):
         uni_cat_target_compare_sub(df, col, ax=axes[i])
     
     # Hide any unused subplots
-    for j in range(i + 1, len(axes)):
+    for j in range(len(columns), len(axes)):
         fig.delaxes(axes[j])
     
     plt.tight_layout()
     plt.show()
-
 
 
 # def bi_cat_countplot(df, column, hue_column, size = 20):
