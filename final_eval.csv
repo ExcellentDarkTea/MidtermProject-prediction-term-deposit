@@ -1,0 +1,8 @@
+,Validation,Validation,Train,Train
+,f1,average_precision,f1,average_precision
+Logistic Regression,0.4593,0.448,0.4574,0.4507
+KNN,0.3708,0.3607,0.4632,0.5363
+Decision Tree,0.4425,0.3983,0.5286,0.5882
+XGBoost,0.428,0.4089,0.6016,0.6862
+Random Forest,0.4914,0.4743,0.5044,0.5815
+Balanced Bagging,0.4374,0.441,0.6384,0.8453
