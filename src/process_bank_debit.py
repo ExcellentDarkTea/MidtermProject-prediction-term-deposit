@@ -32,12 +32,6 @@ def get_column_types(df: pd.DataFrame) -> Tuple[List[str], List[str]]:
     numeric_cols = df.select_dtypes(include=np.number).columns.tolist()
     categorical_cols = df.select_dtypes('object').columns.tolist()
     
-    # # Remove specific columns
-    # for col in ['CustomerId', 'id']:
-    #     if col in numeric_cols:
-    #         numeric_cols.remove(col)
-    # if 'Surname' in categorical_cols:
-    #     categorical_cols.remove('Surname')
     
     return numeric_cols, categorical_cols
 
@@ -147,31 +141,6 @@ def preprocess_data(df: pd.DataFrame, target: str, scaler_numeric: bool = True, 
         'numeric_cols': numeric_cols
     }
     
-# X_train, X_val, y_train, y_val, scaler, encoder
-
-# def preprocess_new_data(new_data: pd.DataFrame, scaler: Optional[object], encoder: OneHotEncoder, numeric_cols: List[str], categorical_cols: List[str]) -> pd.DataFrame:
-#     """
-#     Preprocess new data using the fitted scaler and encoder.
-
-#     Args:
-#         new_data (pd.DataFrame): New data to preprocess.
-#         scaler (Optional[object]): Fitted scaler (StandardScaler or MinMaxScaler) or None.
-#         encoder (OneHotEncoder): Fitted OneHotEncoder.
-#         numeric_cols (List[str]): List of numeric column names.
-#         categorical_cols (List[str]): List of categorical column names.
-
-#     Returns:
-#         pd.DataFrame: Preprocessed new data.
-#     """
-#     numeric_cols, categorical_cols = get_column_types(new_data)
-
-#     if scaler is not None:
-#         new_data[numeric_cols] = scaler.transform(new_data[numeric_cols])
-    
-#     encoded_cols = list(encoder.get_feature_names_out(categorical_cols))
-#     new_data[encoded_cols] = encoder.transform(new_data[categorical_cols])
-    
-#     return new_data[numeric_cols + encoded_cols]
 
 def preprocess_new_data(new_data: pd.DataFrame, preprocessing_info: Dict[str, Any]) -> pd.DataFrame:
     """
