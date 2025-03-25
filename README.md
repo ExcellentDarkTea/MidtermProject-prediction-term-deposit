@@ -20,7 +20,7 @@ The dataset is available on Kaggle: [Bank Additional Full Dataset](https://www.k
 
 ## 🚀 Project Goals
 1. **Model Development**: Build a machine learning model to predict the likelihood of a customer subscribing to a term deposit.
-2. **Model Interpretability**: Provide clear explanations of the model's predictions using techniques like SHAP (SHapley Additive exPlanations) or LIME (Local Interpretable Model-agnostic Explanations).
+2. **Model Interpretability**: Provide clear explanations of the model's predictions using techniques like SHAP and misclassification analysis.
 
 ## 📂 Repository Structure
 ```
@@ -47,7 +47,7 @@ bank-term-deposit-prediction/
 
 
 ## 📈 Results
-The final model achieves an accuracy of X% with an F1-score of Y%. The interpretability analysis reveals that features like `duration`, `age`, and `job` are the most influential in predicting term deposit subscriptions.
+The final model achieves an F1-score of 51.76% on the validation dataset. The interpretability analysis reveals that features like economic factors are the most influential in predicting term deposit subscriptions.
 
 | Model                     |  Validation F1 | Validation Average Precision | Train Threshold | Train F1 | Train Average Precision |
 |---------------------------|--------------|----------------------------|----------------|---------|------------------------|
