@@ -27,18 +27,16 @@ The dataset is available on Kaggle: [Bank Additional Full Dataset](https://www.k
 bank-term-deposit-prediction/
 ├── data/                   # Folder containing the dataset
 │   └── bank-additional-full.csv
+│   └── bank-additional-full-clean.csv
 ├── notebooks/              # Jupyter notebooks for EDA, modeling, and explanation
 │   ├── 01_eda.ipynb
 │   ├── 02_modeling.ipynb
 │   └── 03_interpretability.ipynb
 ├── src/                    # Source code for preprocessing, modeling, and evaluation
-│   ├── preprocess.py
-│   ├── train.py
-│   └── evaluate.py
-├── models/                 # Saved models and artifacts
-├── requirements.txt        # Python dependencies
-├── README.md               # Project overview and instructions
-└── LICENSE                 # License information
+│   ├── process_bank_churn.py
+│   ├── viz_plots.py
+├── models/                 # Saved models
+
 ```
 
 ## 🔍 Key Steps
@@ -48,9 +46,21 @@ bank-term-deposit-prediction/
 4. **Interpretability**: Use explainability tools to provide insights into the model's predictions.
 
 
-
 ## 📈 Results
 The final model achieves an accuracy of X% with an F1-score of Y%. The interpretability analysis reveals that features like `duration`, `age`, and `job` are the most influential in predicting term deposit subscriptions.
+
+| Model                     |  Validation F1 | Validation Average Precision | Train Threshold | Train F1 | Train Average Precision |
+|---------------------------|--------------|----------------------------|----------------|---------|------------------------|
+| Logistic Regression       |  49.69        | 46.96                      | 0.65         | 49.02   | 44.24                  |
+| KNN                       |  48.59        | 43.13                      | 0.25          | 51.19   | 48.85                  |
+| Decision Tree             |  50.37        | 43.22                      | 0.45          | 49.53   | 41.53                  |
+| XGBoost                   |  44.00        | 43.48                      | 0.60          | 71.24   | 75.27                  |
+| XGBoost Hyperopt          | **51.76**        | **49.11**                      | 0.60          | 57.99   | 60.47                  |
+| XGBoost Random Search     |  50.08        | 49.39                      | 0.30          | 56.77   | 61.20                  |
+| Random Forest             |  46.36        | 49.33                      | 0.40          | 60.11   | 67.91                  |
+| Balanced Bagging          |  47.00        | 48.18                      | 0.75         | 61.87   | 71.77                  |
+
+
 
 ## 🔮 Future Work
 - Implement a Streamlit dashboard for interactive visualization of predictions and model explanations.
